@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Medina | Recargas de Diamantes Free Fire al Instante</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Orbitron (Gamer Titles) & Inter (Clean UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        gamer: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        darkbg: '#0a0a0f',
+                        cardbg: '#12121c',
+                        cardhover: '#181826',
+                        neoncyan: '#00f0ff',
+                        neongold: '#ffb800',
+                        neonorange: '#ff5e00',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0f;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Fondos y efectos de resplandor Neón */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+        }
+
+        .glow-cyan-hover:hover {
+            box-shadow: 0 0 28px rgba(0, 240, 255, 0.45);
+            border-color: #00f0ff;
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 25px rgba(255, 184, 0, 0.3);
+        }
+
+        .glow-gold-hover:hover {
+            box-shadow: 0 0 32px rgba(255, 184, 0, 0.5);
+            border-color: #ffb800;
+        }
+
+        .text-gradient-cyan {
+            background: linear-gradient(90deg, #00f0ff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-fire {
+            background: linear-gradient(90deg, #ffb800, #ff5e00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2033;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+    </style>
+</head>
+<body class="bg-darkbg bg-grid-pattern min-h-screen flex flex-col antialiased selection:bg-neoncyan selection:text-darkbg">
+
+    <!-- ===================================================================== -->
+    <!-- CONFIGURACIÓN RÁPIDA DE LA TIENDA (EDITA AQUÍ TUS DATOS)              -->
+    <!-- ===================================================================== -->
+    <script>
+        const CONFIG_TIENDA = {
+            nombreTienda: "Tienda Medina",
+            whatsappNumero: "526621770114", 
+            // Tasa referencial aproximada de MXN a USD o Bs si deseas mostrarla, o mantenemos MXN como base
+            tasaBs: 20.00, 
+            mostrarBsPorDefecto: false,
+            datosPago: {
+                "Nequi": {
+                    titular: "Tienda Medina",
+                    cuenta: "300 000 0000", // Edita aquí tu número Nequi
+                    nota: "Envía captura del comprobante al finalizar."
+                },
+                "Binance Pay (USDT)": {
+                    titular: "Tienda Medina",
+                    cuenta: "ID: 123456789 / medina@email.com", // Edita aquí tu Binance ID o correo
+                    nota: "Pago sin comisión vía Binance Pay."
+                },
+                "Zinli": {
+                    titular: "Tienda Medina",
+                    cuenta: "medina@email.com", // Edita aquí tu correo Zinli
+                    nota: "Transferencia inmediata en USD."
+                },
+                "Transferencia / Depósito MX": {
+                    titular: "Tienda Medina",
+                    cuenta: "CLABE: 0123 4567 8901 2345 67", // Edita aquí tu CLABE o tarjeta
+                    nota: "Acreditación SPEI al instante."
+                },
+                "OXXO / Efectivo": {
+                    titular: "Tienda Medina",
+                    cuenta: "Solicitar tarjeta en WhatsApp",
+                    nota: "Envía foto del ticket de OXXO."
+                }
+            }
+        };
+    </script>
+
+    <!-- ===================================================================== -->
+    <!-- NAVBAR / ENCABEZADO                                                   -->
+    <!-- ===================================================================== -->
+    <header class="sticky top-0 z-40 bg-darkbg/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo Oficial con Diamante Neón -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-neoncyan to-blue-600 flex items-center justify-center glow-cyan group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,240,255,0.5)]">
+                        <i class="fa-solid fa-gem text-darkbg text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-gamer font-black text-xl sm:text-2xl tracking-wider text-white block leading-none">
+                            TIENDA <span class="text-gradient-cyan">MEDINA</span>
+                        </span>
+                        <span class="text-[11px] uppercase tracking-widest text-neongold font-semibold">Free Fire Store MX</span>
+                    </div>
+                </a>
+
+                <!-- Enlaces Desktop -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                    <a href="#combos" class="hover:text-neoncyan transition-colors">Combos Diamantes</a>
+                    <a href="#ilimitadas" class="hover:text-neongold transition-colors">Ilimitadas</a>
+                    <a href="#extras" class="hover:text-neoncyan transition-colors">Membresías & Extras</a>
+                    <a href="#redes" class="hover:text-pink-400 transition-colors">Redes Sociales</a>
+                </nav>
+
+                <!-- Acciones Derecha (Carrito + WhatsApp) -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Botón Carrito -->
+                    <button onclick="openCartModal()" class="relative p-2.5 sm:px-4 sm:py-2.5 rounded-xl bg-cardbg border border-neoncyan/40 hover:bg-neoncyan/10 text-white font-semibold text-sm flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-cart-shopping text-neoncyan"></i>
+                        <span class="hidden sm:inline">Pedido</span>
+                        <span id="cart-badge" class="w-5 h-5 rounded-full bg-neonorange text-white text-xs font-bold flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Botón Soporte Directo -->
+                    <a id="nav-whatsapp-btn" href="#" target="_blank"
+                        class="hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Soporte</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- SECCIÓN HERO / BANNER PRINCIPAL                                       -->
+    <!-- ===================================================================== -->
+    <section class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 overflow-hidden">
+        <div class="absolute top-10 left-1/4 w-72 h-72 bg-neoncyan/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-neonorange/15 rounded-full blur-[130px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neoncyan/10 border border-neoncyan/30 text-neoncyan text-xs font-bold uppercase tracking-wider mb-5">
+                        <span class="w-2 h-2 rounded-full bg-neoncyan animate-ping"></span>
+                        100% Seguro y Confiable • Ganas Tokens en Pagostore
+                    </div>
+
+                    <h1 class="font-gamer font-black text-3xl sm:text-5xl lg:text-5xl text-white leading-tight tracking-tight mb-5">
+                        DIAMANTES Y <span class="text-gradient-cyan">COMBOS</span> AL <span class="text-gradient-fire">MEJOR PRECIO</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                        Recargas directas a tu cuenta sin riesgo de baneo. Cuentan para subir tu nivel Prime y obtener tus recompensas favoritas.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#combos" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-neoncyan to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-darkbg font-gamer font-extrabold text-sm sm:text-base tracking-wide uppercase shadow-lg shadow-neoncyan/30 transition-all text-center">
+                            <i class="fa-solid fa-bolt mr-2"></i> Ver Combos MX
+                        </a>
+                        <a href="#extras" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-cardbg border border-white/15 hover:border-neongold/60 text-white font-semibold text-sm sm:text-base transition-all text-center">
+                            <i class="fa-solid fa-crown text-neongold mr-2"></i> Pases y Membresías
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Verificador de ID -->
+                <div class="lg:col-span-5">
+                    <div class="bg-cardbg/90 backdrop-blur-xl border border-neoncyan/30 rounded-3xl p-6 sm:p-8 glow-cyan relative">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-xl bg-neoncyan/15 flex items-center justify-center text-neoncyan">
+                                    <i class="fa-solid fa-id-card-clip text-lg"></i>
+                                </div>
+                                <div>
+                                    <h2 class="font-gamer font-bold text-base sm:text-lg text-white">DATOS DEL JUGADOR</h2>
+                                    <p class="text-xs text-gray-400">Solo con tu ID de Free Fire</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 text-[11px] font-bold border border-emerald-500/30">
+                                Sin Ban
+                            </span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label for="hero-player-id" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">
+                                    ID de Free Fire <span class="text-neonorange">*</span>
+                                </label>
+                                <div class="relative">
+                                    <input type="text" id="hero-player-id" inputmode="numeric" placeholder="Ej: 1849204712"
+                                        oninput="syncPlayerData('id', this.value)"
+                                        class="w-full bg-darkbg border border-white/15 focus:border-neoncyan rounded-xl px-4 py-3.5 text-white font-gamer tracking-wider placeholder-gray-600 focus:outline-none transition-colors">
+                                    <button onclick="pasteFromClipboard()" title="Pegar ID"
+                                        class="absolute right-2.5 top-1/2 -translate-y-1/2 px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-gray-300 transition-colors">
+                                        Pegar
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="id-status-box" class="p-3.5 rounded-xl bg-darkbg/80 border border-white/10 flex items-center justify-between transition-all">
+                                <div class="flex items-center gap-2.5">
+                                    <i id="id-status-icon" class="fa-solid fa-circle-info text-gray-400"></i>
+                                    <span id="id-status-text" class="text-xs text-gray-400">Ingresa tu ID numérico</span>
+                                </div>
+                                <button onclick="verifyPlayerId()" id="btn-verify-id" class="px-3.5 py-1.5 rounded-lg bg-neoncyan/20 hover:bg-neoncyan/30 text-neoncyan text-xs font-bold transition-colors flex items-center gap-1.5">
+                                    <span>Buscar Cuenta</span>
+                                </button>
+                            </div>
+
+                            <!-- Tarjeta de Perfil Encontrado (Oculta por defecto) -->
+                            <div id="player-profile-card" class="hidden p-4 rounded-2xl bg-gradient-to-r from-emerald-500/15 via-cardbg to-neoncyan/10 border border-emerald-500/40 animate-fade-in">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="relative">
+                                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-neoncyan to-blue-600 flex items-center justify-center text-darkbg font-gamer font-black text-lg shadow-md">
+                                            <i class="fa-solid fa-user-astronaut"></i>
+                                        </div>
+                                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-cardbg flex items-center justify-center">
+                                            <i class="fa-solid fa-check text-[8px] text-white"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">Cuenta Verificada</span>
+                                            <span id="profile-region-badge" class="text-[10px] text-gray-400 truncate">EE.UU.</span>
+                                        </div>
+                                        <h4 id="profile-nick-display" class="font-gamer font-bold text-white text-base truncate mt-0.5">Jugador_FF</h4>
+                                        <p class="text-xs text-gray-400 font-mono">UID: <span id="profile-id-display" class="text-neoncyan font-semibold">000000000</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECCIÓN: COMBOS / PRECIOS BASE DE DIAMANTES (MXN)                     -->
+    <!-- ===================================================================== -->
+    <section id="combos" class="py-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-neoncyan font-bold text-xs uppercase tracking-widest block mb-2">💎 Combos y Precios Base</span>
+                <h2 class="font-gamer font-black text-3xl sm:text-4xl text-white mb-3">
+                    CATÁLOGO DE <span class="text-gradient-cyan">DIAMANTES MX</span>
+                </h2>
+                <p class="text-gray-400 text-sm">Selecciona el combo que prefieras para tu recarga inmediata.</p>
+            </div>
+
+            <!-- Grid de Combos Dinámico -->
+            <div id="diamonds-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Se llena con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECCIÓN: RECARGAS ILIMITADAS                                          -->
+    <!-- ===================================================================== -->
+    <section id="ilimitadas" class="py-16 bg-gradient-to-b from-transparent via-cardbg/40 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-neongold font-bold text-xs uppercase tracking-widest block mb-2">⚡️ Promociones Destacadas</span>
+                <h2 class="font-gamer font-black text-3xl sm:text-4xl text-white mb-3">
+                    RECARGAS <span class="text-gradient-fire">ILIMITADAS</span>
+                </h2>
+                <p class="text-gray-400 text-sm">Los paquetes favoritos de la comunidad con entrega ultrarrápida.</p>
+            </div>
+
+            <div id="ilimitadas-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Se llena con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECCIÓN: EXTRAS (MEMBRESÍAS, PASES, CAJITAS, FRAGMENTOS)              -->
+    <!-- ===================================================================== -->
+    <section id="extras" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-neoncyan font-bold text-xs uppercase tracking-widest block mb-2">🎟️ Pases y Artículos Especiales</span>
+                <h2 class="font-gamer font-black text-3xl sm:text-4xl text-white mb-3">
+                    MEMBRESÍAS Y <span class="text-gradient-cyan">EXTRAS</span>
+                </h2>
+                <p class="text-gray-400 text-sm">Llegan directo al correo de Free Fire.</p>
+            </div>
+
+            <div id="extras-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Se llena con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECCIÓN: REDES SOCIALES                                               -->
+    <!-- ===================================================================== -->
+    <section id="redes" class="py-16 bg-cardbg/50 border-t border-white/5">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400 text-xs font-bold uppercase tracking-wider mb-4">
+                <i class="fa-solid fa-heart"></i> Likes, Seguidores y Vistas
+            </div>
+            <h2 class="font-gamer font-black text-3xl text-white mb-4">IMPULSA TUS <span class="text-gradient-fire">REDES SOCIALES</span></h2>
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto mb-8">
+                Ofrecemos crecimiento garantizado para: <strong class="text-white">TikTok, Instagram, Facebook, YouTube, Twitter/X, Telegram y Twitch</strong> (Likes, Seguidores, Vistas y Comentarios).
+            </p>
+            <a href="#" id="social-whatsapp-btn" target="_blank"
+                class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white font-gamer font-bold text-sm uppercase tracking-wider shadow-lg shadow-pink-500/20 transition-all">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Cotizar Servicios de Redes Sociales
+            </a>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- FOOTER                                                                -->
+    <!-- ===================================================================== -->
+    <footer class="mt-auto bg-cardbg border-t border-white/10 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/10">
+                <div>
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <i class="fa-solid fa-gem text-neoncyan text-xl"></i>
+                        <span class="font-gamer font-black text-xl text-white">TIENDA <span class="text-neoncyan">MEDINA</span></span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Recargas oficiales de Free Fire en México. Seguras, confiables y con acreditación para tu nivel Prime.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-gamer font-bold text-sm text-white uppercase tracking-wider mb-3">Garantías</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        ✅ 100% Seguro y confiable sin riesgo de ban.<br>
+                        🎟️ Ganas tokens en Pagostore.<br>
+                        ⚜️ Cuentan para subir nivel Prime.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-gamer font-bold text-sm text-white uppercase tracking-wider mb-3">Contacto Directo</h4>
+                    <a id="footer-whatsapp" href="#" target="_blank"
+                        class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/40 font-semibold text-sm transition-colors">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Abrir WhatsApp de Pedidos
+                    </a>
+                </div>
+            </div>
+            <div class="pt-6 text-center text-xs text-gray-500">
+                &copy; <span id="current-year"></span> Tienda Medina. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL DE CHECKOUT / CARRITO                                           -->
+    <!-- ===================================================================== -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-cardbg border border-neoncyan/40 rounded-3xl w-full max-w-lg max-h-[92vh] overflow-y-auto shadow-2xl glow-cyan">
+            <div class="sticky top-0 bg-cardbg/95 backdrop-blur-md px-6 py-4 border-b border-white/10 flex items-center justify-between z-10">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-bag-shopping text-neoncyan text-lg"></i>
+                    <h3 class="font-gamer font-bold text-lg text-white">RESUMEN DE TU PEDIDO</h3>
+                </div>
+                <button onclick="closeCartModal()" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-5">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Productos seleccionados</span>
+                        <button onclick="clearCart()" class="text-xs text-rose-400 hover:underline">Vaciar</button>
+                    </div>
+                    <div id="cart-items-container" class="space-y-2.5 max-h-48 overflow-y-auto pr-1"></div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-darkbg border border-white/10 flex items-center justify-between">
+                    <span class="text-sm font-semibold text-gray-300">Total a Pagar:</span>
+                    <span id="modal-total-mxn" class="font-gamer font-black text-2xl text-neoncyan">$0.00 MXN</span>
+                </div>
+
+                <div class="space-y-3.5 pt-2 border-t border-white/10">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">
+                            ID de Jugador Free Fire <span class="text-neonorange">*</span>
+                        </label>
+                        <input type="text" id="modal-player-id" inputmode="numeric" placeholder="Ej: 1849204712"
+                            oninput="syncPlayerData('id', this.value)"
+                            class="w-full bg-darkbg border border-white/15 focus:border-neoncyan rounded-xl px-4 py-3 text-white font-gamer tracking-wider placeholder-gray-600 focus:outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">Nick (Opcional)</label>
+                            <input type="text" id="modal-player-nick" placeholder="Tu nombre en FF"
+                                oninput="syncPlayerData('nick', this.value)"
+                                class="w-full bg-darkbg border border-white/15 focus:border-neoncyan rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">Método de Pago</label>
+                            <select id="modal-payment-method" onchange="updatePaymentDetails()"
+                                class="w-full bg-darkbg border border-white/15 focus:border-neoncyan rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none">
+                                <option value="Nequi">Nequi</option>
+                                <option value="Binance Pay (USDT)">Binance Pay (USDT)</option>
+                                <option value="Zinli">Zinli</option>
+                                <option value="Transferencia / Depósito MX">Transferencia / Depósito MX</option>
+                                <option value="OXXO / Efectivo">OXXO / Efectivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta con tus datos para que transfieran al instante -->
+                    <div id="payment-details-card" class="p-4 rounded-2xl bg-gradient-to-br from-neoncyan/10 to-blue-600/10 border border-neoncyan/30 space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-neoncyan flex items-center gap-1.5">
+                                <i class="fa-solid fa-bolt"></i> Datos para transferir ahora
+                            </span>
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">Entrega Express</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-darkbg/90 p-2.5 rounded-xl border border-white/10">
+                            <div class="min-w-0 pr-2">
+                                <p id="pay-detail-titular" class="text-[11px] text-gray-400">Titular: Tienda Medina</p>
+                                <p id="pay-detail-cuenta" class="font-mono text-sm font-bold text-white truncate">300 000 0000</p>
+                            </div>
+                            <button type="button" onclick="copyPaymentAccount()" class="shrink-0 px-3 py-1.5 rounded-lg bg-neoncyan/20 hover:bg-neoncyan/30 text-neoncyan text-xs font-bold transition-colors flex items-center gap-1">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <p id="pay-detail-nota" class="text-[11px] text-gray-300">Envía captura del comprobante al finalizar.</p>
+                    </div>
+
+                    <!-- Campo opcional para referencia/comprobante -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">
+                            N° de Referencia / Comprobante <span class="text-gray-500 font-normal">(Para recarga inmediata)</span>
+                        </label>
+                        <input type="text" id="modal-payment-ref" placeholder="Ej: M123456 o últimos 4 dígitos"
+                            class="w-full bg-darkbg border border-white/15 focus:border-neoncyan rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none">
+                    </div>
+                </div>
+
+                <div id="modal-error-box" class="hidden p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span id="modal-error-text">Por favor ingresa tu ID de jugador.</span>
+                </div>
+
+                <button onclick="sendOrderToWhatsApp()"
+                    class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white font-gamer font-bold text-sm sm:text-base tracking-wide uppercase shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2.5 transition-all">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Enviar Pedido por WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-cardbg border border-neoncyan text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 glow-cyan">
+            <i class="fa-solid fa-circle-check text-neoncyan text-lg"></i>
+            <span id="toast-message" class="text-sm font-medium">Agregado al pedido</span>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- SCRIPT DE DATOS Y LÓGICA                                              -->
+    <!-- ===================================================================== -->
+    <script>
+        // Lista exacta de combos de diamantes MX
+        const COMBOS_DIAMANTES = [
+            { id: 'c1', nombre: '110 💎', precio: 17, tag: 'Combo Base' },
+            { id: 'c2', nombre: '220 💎', precio: 34, tag: 'Combo Base' },
+            { id: 'c3', nombre: '341 💎', precio: 55, tag: 'Combo Base' },
+            { id: 'c4', nombre: '451 💎', precio: 72, tag: 'Combo Base' },
+            { id: 'c5', nombre: '572 💎', precio: 80, tag: 'Popular' },
+            { id: 'c6', nombre: '682 💎', precio: 97, tag: 'Combo Base' },
+            { id: 'c7', nombre: '792 💎', precio: 114, tag: 'Combo Base' },
+            { id: 'c8', nombre: '913 💎', precio: 135, tag: 'Combo Base' },
+            { id: 'c9', nombre: '1,166 💎', precio: 145, tag: 'Destacado' },
+            { id: 'c10', nombre: '1,276 💎', precio: 162, tag: 'Combo Base' },
+            { id: 'c11', nombre: '1,507 💎', precio: 200, tag: 'Combo Base' },
+            { id: 'c12', nombre: '1,738 💎', precio: 225, tag: 'Combo Base' },
+            { id: 'c13', nombre: '1,848 💎', precio: 242, tag: 'Combo Base' },
+            { id: 'c14', nombre: '2,398 💎', precio: 280, tag: 'Más Vendido' },
+            { id: 'c15', nombre: '2,508 💎', precio: 297, tag: 'Combo Base' },
+            { id: 'c16', nombre: '2,739 💎', precio: 335, tag: 'Combo Base' },
+            { id: 'c17', nombre: '3,080 💎', precio: 377, tag: 'Combo Base' },
+            { id: 'c18', nombre: '3,564 💎', precio: 425, tag: 'Combo Base' },
+            { id: 'c19', nombre: '4,136 💎', precio: 505, tag: 'Combo Base' },
+            { id: 'c20', nombre: '4,796 💎', precio: 560, tag: 'Combo Base' },
+            { id: 'c21', nombre: '5,137 💎', precio: 615, tag: 'Combo Base' },
+            { id: 'c22', nombre: '5,368 💎', precio: 640, tag: 'Combo Base' },
+            { id: 'c23', nombre: '5,478 💎', precio: 657, tag: 'Combo Base' },
+            { id: 'c24', nombre: '6,160 💎', precio: 680, tag: '⚡️ Ilimitable' },
+            { id: 'c25', nombre: '6,501 💎', precio: 735, tag: 'Combo Base' },
+            { id: 'c26', nombre: '7,073 💎', precio: 815, tag: 'Combo Base' },
+            { id: 'c27', nombre: '7,326 💎', precio: 825, tag: 'Combo Base' },
+            { id: 'c28', nombre: '8,558 💎', precio: 960, tag: 'Combo Base' },
+            { id: 'c29', nombre: '10,065 💎', precio: 1160, tag: 'Pro' },
+            { id: 'c30', nombre: '12,320 💎', precio: 1360, tag: 'Pro' },
+            { id: 'c31', nombre: '15,059 💎', precio: 1695, tag: 'Pro' },
+            { id: 'c32', nombre: '18,480 💎', precio: 2040, tag: 'Pro' },
+            { id: 'c33', nombre: '20,097 💎', precio: 2257, tag: 'Élite' },
+            { id: 'c34', nombre: '20,640 💎', precio: 2720, tag: 'Élite' },
+            { id: 'c35', nombre: '30,800 💎', precio: 3400, tag: 'Máximo' },
+            { id: 'c36', nombre: '37,070 💎', precio: 4097, tag: 'Máximo' },
+            { id: 'c37', nombre: '40,040 💎', precio: 4457, tag: 'Máximo' },
+            { id: 'c38', nombre: '50,072 💎', precio: 5554, tag: 'Leyenda' }
+        ];
+
+        // Recargas Ilimitadas destacadas
+        const ILIMITADAS = [
+            { id: 'i1', nombre: '6,160 💎 Ilimitada', precio: 680, tag: '⚡️ Súper Popular' },
+            { id: 'i2', nombre: '2,398 💎 Ilimitada', precio: 280, tag: '⚡️ Popular' },
+            { id: 'i3', nombre: '1,166 💎 Ilimitada', precio: 145, tag: '⚡️ Rápida' },
+            { id: 'i4', nombre: '572 💎 Ilimitada', precio: 80, tag: '⚡️ Oferta' },
+            { id: 'i5', nombre: '341 💎 Ilimitada', precio: 55, tag: '⚡️ Económica' },
+            { id: 'i6', nombre: '110 💎 Ilimitada', precio: 18, tag: '⚡️ Básica' }
+        ];
+
+        // Extras y Membresías
+        const EXTRAS = [
+            { id: 'e1', nombre: 'Pase Booyah', precio: 30, tag: 'Llega al Correo' },
+            { id: 'e2', nombre: 'Membresía Semanal', precio: 40, tag: 'Llega al Correo' },
+            { id: 'e3', nombre: 'Membresía Mensual', precio: 160, tag: 'Llega al Correo' },
+            { id: 'e4', nombre: 'Membresía Semanal Básica', precio: 8, tag: 'Llega al Correo' },
+            { id: 'e5', nombre: 'Caja Evolutiva', precio: 5, tag: 'Por Unidad' },
+            { id: 'e6', nombre: 'Fragmento Universal', precio: 1, tag: 'Por Unidad' }
+        ];
+
+        let cart = [];
+        let playerData = { id: '', nick: '', region: 'EE.UU. / Norteamérica' };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            updateWhatsAppLinks();
+            renderCombos();
+            renderIlimitadas();
+            renderExtras();
+            updatePaymentDetails();
+        });
+
+        function updateWhatsAppLinks() {
+            const msg = encodeURIComponent(`Hola ${CONFIG_TIENDA.nombreTienda}, vengo de su página web y quiero hacer una recarga de Free Fire.`);
+            const url = `https://wa.me/${CONFIG_TIENDA.whatsappNumero}?text=${msg}`;
+            document.getElementById('nav-whatsapp-btn').href = url;
+            document.getElementById('footer-whatsapp').href = url;
+            document.getElementById('social-whatsapp-btn').href = `https://wa.me/${CONFIG_TIENDA.whatsappNumero}?text=${encodeURIComponent('Hola, quiero cotizar seguidores y likes para redes sociales.')}`;
+        }
+
+        function renderCombos() {
+            const grid = document.getElementById('diamonds-grid');
+            grid.innerHTML = COMBOS_DIAMANTES.map(item => `
+                <div class="bg-cardbg hover:bg-cardhover border border-white/10 hover:border-neoncyan/50 rounded-2xl p-4 flex flex-col justify-between transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-0.5 rounded-md bg-neoncyan/10 text-neoncyan text-[10px] font-bold uppercase">${item.tag}</span>
+                        <i class="fa-solid fa-gem text-neoncyan/70"></i>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-gamer font-bold text-lg text-white mb-1">${item.nombre}</h3>
+                        <p class="font-gamer font-black text-xl text-gradient-cyan">$${item.precio} MXN</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="addItem('${item.id}', '${item.nombre}', ${item.precio})" class="w-full py-2.5 rounded-xl bg-neoncyan hover:bg-cyan-300 text-darkbg font-gamer font-bold text-xs uppercase tracking-wider transition-all">
+                            Agregar / Comprar
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderIlimitadas() {
+            const grid = document.getElementById('ilimitadas-grid');
+            grid.innerHTML = ILIMITADAS.map(item => `
+                <div class="bg-cardbg hover:bg-cardhover border border-neongold/40 glow-gold-hover rounded-3xl p-6 flex flex-col justify-between transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-neongold/20 text-neongold text-xs font-bold">${item.tag}</span>
+                        <i class="fa-solid fa-bolt text-neongold text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-gamer font-bold text-xl text-white mb-2">${item.nombre}</h3>
+                        <p class="font-gamer font-black text-3xl text-gradient-fire">$${item.precio} MXN</p>
+                    </div>
+                    <button onclick="addItem('${item.id}', '${item.nombre}', ${item.precio})" class="mt-6 w-full py-3 rounded-xl bg-gradient-to-r from-neongold to-neonorange text-darkbg font-gamer font-bold text-xs uppercase tracking-wider transition-all">
+                        Comprar Ilimitada
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderExtras() {
+            const grid = document.getElementById('extras-grid');
+            grid.innerHTML = EXTRAS.map(item => `
+                <div class="bg-cardbg hover:bg-cardhover border border-white/10 hover:border-neoncyan/50 rounded-3xl p-6 flex flex-col justify-between transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-neoncyan/10 text-neoncyan text-xs font-bold">${item.tag}</span>
+                        <i class="fa-solid fa-ticket text-neoncyan text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-gamer font-bold text-xl text-white mb-2">${item.nombre}</h3>
+                        <p class="font-gamer font-black text-3xl text-white">$${item.precio} MXN</p>
+                    </div>
+                    <button onclick="addItem('${item.id}', '${item.nombre}', ${item.precio})" class="mt-6 w-full py-3 rounded-xl bg-neoncyan hover:bg-cyan-300 text-darkbg font-gamer font-bold text-xs uppercase tracking-wider transition-all">
+                        Agregar al Pedido
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function syncPlayerData(field, value) {
+            playerData[field] = value.trim();
+            if (field === 'id') {
+                document.getElementById('hero-player-id').value = value;
+                document.getElementById('modal-player-id').value = value;
+                // Ocultar tarjeta si borra o edita el ID
+                if (!/^\d{6,14}$/.test(playerData.id)) {
+                    document.getElementById('player-profile-card').classList.add('hidden');
+                }
+            } else if (field === 'nick') {
+                document.getElementById('hero-player-nick').value = value;
+                document.getElementById('modal-player-nick').value = value;
+                if (playerData.nick) {
+                    document.getElementById('profile-nick-display').textContent = playerData.nick;
+                }
+            } else if (field === 'region') {
+                document.getElementById('profile-region-badge').textContent = value;
+            }
+        }
+
+        function verifyPlayerId() {
+            const id = playerData.id;
+            const statusBox = document.getElementById('id-status-box');
+            const statusIcon = document.getElementById('id-status-icon');
+            const statusText = document.getElementById('id-status-text');
+            const btnVerify = document.getElementById('btn-verify-id');
+            const profileCard = document.getElementById('player-profile-card');
+
+            if (!/^\d{6,14}$/.test(id)) {
+                statusBox.className = 'p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/40 flex items-center justify-between transition-all';
+                statusIcon.className = 'fa-solid fa-circle-exclamation text-rose-400';
+                statusText.className = 'text-xs text-rose-300';
+                statusText.textContent = 'Ingresa un ID válido (6 a 14 números)';
+                profileCard.classList.add('hidden');
+                return;
+            }
+
+            // Simulación de búsqueda en servidor Garena
+            btnVerify.disabled = true;
+            btnVerify.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Buscando...</span>';
+            statusIcon.className = 'fa-solid fa-satellite-dish text-neoncyan animate-pulse';
+            statusText.className = 'text-xs text-neoncyan';
+            statusText.textContent = 'Conectando con servidor Free Fire...';
+
+            setTimeout(() => {
+                btnVerify.disabled = false;
+                btnVerify.innerHTML = '<span>Actualizar</span>';
+
+                // Si el usuario no escribió Nick, generamos uno realista vinculado al ID o usamos el que puso
+                const nickFinal = playerData.nick || `FF_Player_${id.slice(-4)}`;
+                if (!playerData.nick) {
+                    syncPlayerData('nick', nickFinal);
+                }
+
+                statusBox.className = 'p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-between transition-all';
+                statusIcon.className = 'fa-solid fa-circle-check text-emerald-400';
+                statusText.className = 'text-xs text-emerald-300 font-semibold';
+                statusText.textContent = '¡Jugador encontrado!';
+
+                // Mostrar tarjeta del perfil
+                document.getElementById('profile-nick-display').textContent = nickFinal;
+                document.getElementById('profile-id-display').textContent = id;
+                document.getElementById('profile-region-badge').textContent = playerData.region;
+                profileCard.classList.remove('hidden');
+
+                showToast(`Cuenta encontrada: ${nickFinal}`);
+            }, 650);
+        }
+
+        async function pasteFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                const cleanId = text.replace(/\D/g, '');
+                if (cleanId) {
+                    syncPlayerData('id', cleanId);
+                    verifyPlayerId();
+                }
+            } catch (e) {
+                showToast('Pega tu ID manualmente');
+            }
+        }
+
+        function addItem(id, nombre, precio) {
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id, nombre, precio, qty: 1 });
+            }
+            updateCartBadge();
+            renderCart();
+            showToast(`Agregado: ${nombre}`);
+        }
+
+        function updateItemQty(id, delta) {
+            const idx = cart.findIndex(item => item.id === id);
+            if (idx === -1) return;
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) cart.splice(idx, 1);
+            updateCartBadge();
+            renderCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartBadge();
+            renderCart();
+        }
+
+        function updateCartBadge() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-badge').textContent = totalItems;
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const totalEl = document.getElementById('modal-total-mxn');
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="text-center py-6 bg-darkbg/60 rounded-2xl border border-white/5 text-xs text-gray-400">Tu carrito está vacío.</div>`;
+                totalEl.textContent = '$0.00 MXN';
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = cart.map(item => {
+                const sub = item.precio * item.qty;
+                total += sub;
+                return `
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-darkbg border border-white/10">
+                        <div>
+                            <p class="text-sm font-bold text-white">${item.nombre}</p>
+                            <p class="text-xs text-neoncyan">$${item.precio} MXN c/u</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateItemQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/15 text-white text-xs font-bold">-</button>
+                            <span class="text-sm font-gamer font-bold w-5 text-center">${item.qty}</span>
+                            <button onclick="updateItemQty('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/15 text-white text-xs font-bold">+</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            totalEl.textContent = `$${total.toFixed(2)} MXN`;
+        }
+
+        function openCartModal() {
+            document.getElementById('modal-error-box').classList.add('hidden');
+            renderCart();
+            updatePaymentDetails();
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function updatePaymentDetails() {
+            const method = document.getElementById('modal-payment-method').value;
+            const info = CONFIG_TIENDA.datosPago[method];
+            if (!info) return;
+            document.getElementById('pay-detail-titular').textContent = `Titular: ${info.titular}`;
+            document.getElementById('pay-detail-cuenta').textContent = info.cuenta;
+            document.getElementById('pay-detail-nota').textContent = info.nota;
+        }
+
+        function copyPaymentAccount() {
+            const method = document.getElementById('modal-payment-method').value;
+            const info = CONFIG_TIENDA.datosPago[method];
+            if (!info) return;
+            const tempInput = document.createElement('input');
+            tempInput.value = info.cuenta;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(`Copiado: ${info.cuenta}`);
+        }
+
+        function closeCartModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function sendOrderToWhatsApp() {
+            const errorBox = document.getElementById('modal-error-box');
+            const errorText = document.getElementById('modal-error-text');
+            const idInput = document.getElementById('modal-player-id').value.trim();
+            const nickInput = document.getElementById('modal-player-nick').value.trim();
+            const paymentMethod = document.getElementById('modal-payment-method').value;
+            const paymentRef = document.getElementById('modal-payment-ref').value.trim();
+
+            if (cart.length === 0) {
+                errorText.textContent = 'Selecciona al menos un producto.';
+                errorBox.classList.remove('hidden');
+                return;
+            }
+
+            if (!idInput || !/^\d{6,14}$/.test(idInput)) {
+                errorText.textContent = 'Ingresa un ID de Free Fire válido.';
+                errorBox.classList.remove('hidden');
+                document.getElementById('modal-player-id').focus();
+                return;
+            }
+
+            errorBox.classList.add('hidden');
+
+            let total = 0;
+            const itemsLines = cart.map(item => {
+                const sub = item.precio * item.qty;
+                total += sub;
+                return `▪️ ${item.qty}x ${item.nombre} ($${sub} MXN)`;
+            }).join('\n');
+
+            const nickLine = nickInput ? `\n👤 *Nick:* ${nickInput}` : '';
+            const refLine = paymentRef ? `\n🧾 *Ref. Pago:* ${paymentRef}` : '\n🧾 *Comprobante:* Adjunto captura a continuación';
+
+            const mensaje = 
+`🔥 *NUEVO PEDIDO - ${CONFIG_TIENDA.nombreTienda.toUpperCase()}* 🔥
+
+🎮 *ID Jugador:* ${idInput}${nickLine}
+🌎 *Región:* ${playerData.region}
+
+💎 *Detalle del Pedido:*
+${itemsLines}
+
+💰 *Total Pagado:* $${total.toFixed(2)} MXN
+💳 *Método de Pago:* ${paymentMethod}${refLine}
+
+⚡ *Acceso rápido recarga:* https://pagostore.garena.com/
+✅ _100% Seguro y confiable sin riesgo de ban_`;
+
+            const whatsappUrl = `https://wa.me/${CONFIG_TIENDA.whatsappNumero}?text=${encodeURIComponent(mensaje)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2600);
+        }
+    </script>
+</body>
+</html>
